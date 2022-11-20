@@ -40,11 +40,20 @@ export const todoSlice = createSlice({
     },
     removeTodo(state, action: PayloadAction<Todo['id']>) {
       state.list = state.list.filter( todo =>  todo.id !== action.payload)
+    },
+    editTodo(state, action: PayloadAction<Todo>) {
+      state.list.forEach(task => {
+        if ((task.id == action.payload.id)) {
+            (task.title !== action.payload.title)? task.title = action.payload.title : task.title;
+            (task.description !== action.payload.description)? task.description= action.payload.description : task.description;
+            (task.date !== action.payload.date)? task.date = action.payload.date : task.date;
+        }
+      })
     }
 }
 });
 
 
-export const {addTodo, toggleComplete, removeTodo} = todoSlice.actions;
+export const {addTodo, toggleComplete, removeTodo, editTodo} = todoSlice.actions;
 
 export default todoSlice.reducer;

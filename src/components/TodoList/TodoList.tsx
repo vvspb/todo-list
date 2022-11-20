@@ -4,10 +4,7 @@ import TodoItem from '../TodoItem/TodoItem';
 import styles from './index.module.less'
 
 const TodoList: React.FC = () => {
-  const tasks = useAppSelector(state => state.todos.list);
-
-  console.log(tasks);
-  
+  const tasks = useAppSelector(state => state.todos.list);  
 
   return (
     <section className={styles.section}>

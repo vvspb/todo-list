@@ -1,4 +1,5 @@
 import { Todo } from '../../store/todoSlice';
+import { Button } from '../Button/Button';
 import styles from './index.module.less'
 
 interface NewTodoFormProps {
@@ -45,13 +46,10 @@ interface NewTodoFormProps {
               onChange={(e) => updateDate(e.target.value)}
             /> 
         </label>
-        <button onClick={handleAction}>add task</button>
+        
+        <Button onClick={handleAction} color={'Blue'}>add task</Button>
       </section>
     );
   };
   
   export default NewTodoForm;
-
-function updateTask(value: string): void {
-  throw new Error('Function not implemented.');
-}
